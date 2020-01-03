@@ -1,0 +1,995 @@
+W0103 07:41:33.342100  4258 device_context.cc:235] Please NOTE: device: 0, CUDA Capability: 61, Driver API Version: 10.1, Runtime API Version: 10.0
+W0103 07:41:33.347020  4258 device_context.cc:243] device: 0, cuDNN Version: 7.6.
+-----------  Configuration Arguments -----------
+MASK_ON: False
+batch_size_per_im: 512
+class_num: 2
+data_dir: icdar2015
+dataset: coco2017
+draw_threshold: 0.8
+enable_ce: False
+im_per_batch: 14
+image_path: icdar2015/img_116.jpg
+is_profiler: 0
+learning_rate: 0.0005
+log_window: 20
+max_iter: 180000
+max_size: 1333
+model_save_dir: output
+nms_thresh: 0.5
+padding_minibatch: False
+parallel: True
+pretrained_model: ResNet50_pretrained
+profiler_path: ./
+scales: [800]
+score_thresh: 0.05
+snapshot_stride: 1000
+use_gpu: True
+use_profile: False
+use_pyreader: True
+------------------------------------------------
+$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$
+########### 4
+[name: "res5c.add.output.5.tmp_0"
+type {
+  type: LOD_TENSOR
+  lod_tensor {
+    tensor {
+      data_type: FP32
+      dims: -1
+      dims: 2048
+      dims: 16
+      dims: 16
+    }
+    lod_level: 0
+  }
+}
+persistable: false
+, name: "res4f.add.output.5.tmp_0"
+type {
+  type: LOD_TENSOR
+  lod_tensor {
+    tensor {
+      data_type: FP32
+      dims: -1
+      dims: 1024
+      dims: 32
+      dims: 32
+    }
+    lod_level: 0
+  }
+}
+persistable: false
+, name: "res3d.add.output.5.tmp_0"
+type {
+  type: LOD_TENSOR
+  lod_tensor {
+    tensor {
+      data_type: FP32
+      dims: -1
+      dims: 512
+      dims: 64
+      dims: 64
+    }
+    lod_level: 0
+  }
+}
+persistable: false
+, name: "res2c.add.output.5.tmp_0"
+type {
+  type: LOD_TENSOR
+  lod_tensor {
+    tensor {
+      data_type: FP32
+      dims: -1
+      dims: 256
+      dims: 128
+      dims: 128
+    }
+    lod_level: 0
+  }
+}
+persistable: false
+]
+Shape of f_0 (-1, 2048, 16, 16)
+Shape of f_1 (-1, 1024, 32, 32)
+Shape of f_2 (-1, 512, 64, 64)
+Shape of f_3 (-1, 256, 128, 128)
+Shape of h_0 (-1, 2048, 16, 16), g_0 (-1, 2048, 32, 32)
+Shape of h_1 (-1, 128, 32, 32), g_1 (-1, 128, 64, 64)
+Shape of h_2 (-1, 64, 64, 64), g_2 (-1, 64, 128, 128)
+Shape of h_3 (-1, 32, 128, 128), g_3 (-1, 32, 128, 128)
+Generator use 10 batches for buffering, this may take a while, you can tune this yourself.
+/root/anaconda2/envs/rrpn/lib/python3.7/site-packages/paddle/fluid/executor.py:790: UserWarning: The current program is empty.
+  warnings.warn(error_info)
+I0103 07:41:38.027998  4258 parallel_executor.cc:421] The number of CUDAPlace, which is used in ParallelExecutor, is 4. And the Program will be copied 4 copies
+I0103 07:41:46.567607  4258 build_strategy.cc:352] set enable_sequential_execution:1
+W0103 07:41:46.887305  4258 fuse_all_reduce_op_pass.cc:72] Find all_reduce operators: 193. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 176.
+I0103 07:41:46.926726  4258 build_strategy.cc:363] SeqOnlyAllReduceOps:0, num_trainers:1
+I0103 07:41:48.073678  4258 parallel_executor.cc:285] Inplace strategy is enabled, when build_strategy.enable_inplace = True
+I0103 07:41:48.246596  4258 parallel_executor.cc:368] Garbage collection strategy is enabled, when FLAGS_eager_delete_tensor_gb = 0
+2020-01-03 07:41:48.730460, batch: 0, lr: 0.00017, 'model_loss': 0.022, 'g_loss': 0.012, 'cls_loss': 0.01, time: 3.216
+2020-01-03 07:41:53.543446, batch: 10, lr: 0.00017, 'model_loss': 0.031, 'g_loss': 0.021, 'cls_loss': 0.01, time: 0.477
+2020-01-03 07:41:58.445417, batch: 20, lr: 0.00018, 'model_loss': 0.034, 'g_loss': 0.024, 'cls_loss': 0.01, time: 0.496
+2020-01-03 07:42:03.363558, batch: 30, lr: 0.00019, 'model_loss': 0.036, 'g_loss': 0.026, 'cls_loss': 0.01, time: 0.485
+2020-01-03 07:42:08.364111, batch: 40, lr: 0.00019, 'model_loss': 0.03, 'g_loss': 0.021, 'cls_loss': 0.01, time: 0.536
+2020-01-03 07:42:13.346979, batch: 50, lr: 0.00020, 'model_loss': 0.023, 'g_loss': 0.013, 'cls_loss': 0.01, time: 0.475
+2020-01-03 07:42:18.344520, batch: 60, lr: 0.00021, 'model_loss': 0.022, 'g_loss': 0.012, 'cls_loss': 0.01, time: 0.544
+2020-01-03 07:42:23.310852, batch: 70, lr: 0.00021, 'model_loss': 0.022, 'g_loss': 0.012, 'cls_loss': 0.01, time: 0.508
+2020-01-03 07:42:28.222313, batch: 80, lr: 0.00022, 'model_loss': 0.02, 'g_loss': 0.011, 'cls_loss': 0.01, time: 0.477
+2020-01-03 07:42:33.225863, batch: 90, lr: 0.00023, 'model_loss': 0.021, 'g_loss': 0.011, 'cls_loss': 0.01, time: 0.475
+2020-01-03 07:42:38.247438, batch: 100, lr: 0.00023, 'model_loss': 0.021, 'g_loss': 0.011, 'cls_loss': 0.01, time: 0.546
+2020-01-03 07:42:43.056842, batch: 110, lr: 0.00024, 'model_loss': 0.019, 'g_loss': 0.009, 'cls_loss': 0.01, time: 0.476
+2020-01-03 07:42:47.945135, batch: 120, lr: 0.00025, 'model_loss': 0.019, 'g_loss': 0.009, 'cls_loss': 0.01, time: 0.476
+2020-01-03 07:42:52.923822, batch: 130, lr: 0.00025, 'model_loss': 0.019, 'g_loss': 0.009, 'cls_loss': 0.01, time: 0.482
+2020-01-03 07:42:58.351880, batch: 140, lr: 0.00026, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.487
+2020-01-03 07:43:05.152384, batch: 150, lr: 0.00027, 'model_loss': 0.019, 'g_loss': 0.009, 'cls_loss': 0.01, time: 1.025
+2020-01-03 07:43:13.862885, batch: 160, lr: 0.00027, 'model_loss': 0.02, 'g_loss': 0.01, 'cls_loss': 0.01, time: 0.820
+2020-01-03 07:43:21.561614, batch: 170, lr: 0.00028, 'model_loss': 0.022, 'g_loss': 0.012, 'cls_loss': 0.01, time: 0.859
+2020-01-03 07:43:26.443978, batch: 180, lr: 0.00029, 'model_loss': 0.019, 'g_loss': 0.01, 'cls_loss': 0.01, time: 0.478
+2020-01-03 07:43:31.470233, batch: 190, lr: 0.00029, 'model_loss': 0.018, 'g_loss': 0.008, 'cls_loss': 0.01, time: 0.497
+2020-01-03 07:43:36.553897, batch: 200, lr: 0.00030, 'model_loss': 0.018, 'g_loss': 0.008, 'cls_loss': 0.01, time: 0.537
+2020-01-03 07:43:41.451800, batch: 210, lr: 0.00031, 'model_loss': 0.018, 'g_loss': 0.008, 'cls_loss': 0.01, time: 0.493
+2020-01-03 07:43:46.358694, batch: 220, lr: 0.00031, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.483
+2020-01-03 07:43:51.379862, batch: 230, lr: 0.00032, 'model_loss': 0.019, 'g_loss': 0.009, 'cls_loss': 0.01, time: 0.501
+2020-01-03 07:43:56.285090, batch: 240, lr: 0.00033, 'model_loss': 0.018, 'g_loss': 0.008, 'cls_loss': 0.01, time: 0.512
+2020-01-03 07:44:01.240586, batch: 250, lr: 0.00033, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.501
+2020-01-03 07:44:06.254693, batch: 260, lr: 0.00034, 'model_loss': 0.018, 'g_loss': 0.008, 'cls_loss': 0.01, time: 0.470
+2020-01-03 07:44:11.250257, batch: 270, lr: 0.00035, 'model_loss': 0.02, 'g_loss': 0.01, 'cls_loss': 0.01, time: 0.552
+2020-01-03 07:44:16.225117, batch: 280, lr: 0.00035, 'model_loss': 0.019, 'g_loss': 0.009, 'cls_loss': 0.01, time: 0.501
+2020-01-03 07:44:21.594039, batch: 290, lr: 0.00036, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.518
+2020-01-03 07:44:26.423032, batch: 300, lr: 0.00037, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.485
+2020-01-03 07:44:31.365444, batch: 310, lr: 0.00037, 'model_loss': 0.021, 'g_loss': 0.011, 'cls_loss': 0.01, time: 0.482
+2020-01-03 07:44:36.329673, batch: 320, lr: 0.00038, 'model_loss': 0.019, 'g_loss': 0.009, 'cls_loss': 0.01, time: 0.484
+2020-01-03 07:44:41.313196, batch: 330, lr: 0.00039, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.481
+2020-01-03 07:44:46.279792, batch: 340, lr: 0.00039, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.495
+2020-01-03 07:44:51.168824, batch: 350, lr: 0.00040, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.475
+2020-01-03 07:44:56.147605, batch: 360, lr: 0.00041, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.517
+2020-01-03 07:45:01.167188, batch: 370, lr: 0.00041, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.490
+2020-01-03 07:45:06.267589, batch: 380, lr: 0.00042, 'model_loss': 0.019, 'g_loss': 0.009, 'cls_loss': 0.01, time: 0.557
+2020-01-03 07:45:11.338254, batch: 390, lr: 0.00043, 'model_loss': 0.016, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.493
+2020-01-03 07:45:16.432557, batch: 400, lr: 0.00043, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.487
+2020-01-03 07:45:21.315646, batch: 410, lr: 0.00044, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.495
+2020-01-03 07:45:26.369025, batch: 420, lr: 0.00045, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.478
+2020-01-03 07:45:31.369143, batch: 430, lr: 0.00045, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.545
+2020-01-03 07:45:36.308680, batch: 440, lr: 0.00046, 'model_loss': 0.015, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.484
+2020-01-03 07:45:41.285261, batch: 450, lr: 0.00047, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.469
+2020-01-03 07:45:46.339799, batch: 460, lr: 0.00047, 'model_loss': 0.017, 'g_loss': 0.008, 'cls_loss': 0.01, time: 0.549
+2020-01-03 07:45:51.409880, batch: 470, lr: 0.00048, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.491
+2020-01-03 07:45:56.307460, batch: 480, lr: 0.00049, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.524
+2020-01-03 07:46:01.165458, batch: 490, lr: 0.00049, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.491
+2020-01-03 07:46:06.082999, batch: 500, lr: 0.00050, 'model_loss': 0.019, 'g_loss': 0.009, 'cls_loss': 0.01, time: 0.486
+2020-01-03 07:46:11.133331, batch: 510, lr: 0.00050, 'model_loss': 0.018, 'g_loss': 0.009, 'cls_loss': 0.01, time: 0.493
+2020-01-03 07:46:16.119560, batch: 520, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.483
+2020-01-03 07:46:21.071790, batch: 530, lr: 0.00050, 'model_loss': 0.015, 'g_loss': 0.005, 'cls_loss': 0.01, time: 0.492
+2020-01-03 07:46:26.194510, batch: 540, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.503
+2020-01-03 07:46:31.722195, batch: 550, lr: 0.00050, 'model_loss': 0.017, 'g_loss': 0.008, 'cls_loss': 0.01, time: 0.709
+2020-01-03 07:46:36.795303, batch: 560, lr: 0.00050, 'model_loss': 0.019, 'g_loss': 0.009, 'cls_loss': 0.01, time: 0.481
+2020-01-03 07:46:41.645413, batch: 570, lr: 0.00050, 'model_loss': 0.018, 'g_loss': 0.009, 'cls_loss': 0.01, time: 0.475
+2020-01-03 07:46:46.573418, batch: 580, lr: 0.00050, 'model_loss': 0.018, 'g_loss': 0.009, 'cls_loss': 0.01, time: 0.469
+2020-01-03 07:46:51.490040, batch: 590, lr: 0.00050, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.489
+2020-01-03 07:46:56.485591, batch: 600, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.566
+2020-01-03 07:47:01.504530, batch: 610, lr: 0.00050, 'model_loss': 0.015, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.507
+2020-01-03 07:47:06.480371, batch: 620, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.505
+2020-01-03 07:47:11.479554, batch: 630, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.498
+2020-01-03 07:47:16.451443, batch: 640, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.476
+2020-01-03 07:47:21.426334, batch: 650, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.490
+2020-01-03 07:47:26.353594, batch: 660, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.489
+2020-01-03 07:47:31.446279, batch: 670, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.494
+2020-01-03 07:47:36.456139, batch: 680, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.489
+2020-01-03 07:47:41.404689, batch: 690, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.546
+2020-01-03 07:47:46.524457, batch: 700, lr: 0.00050, 'model_loss': 0.015, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.491
+2020-01-03 07:47:51.567659, batch: 710, lr: 0.00050, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.01, time: 0.497
+2020-01-03 07:47:56.836537, batch: 720, lr: 0.00050, 'model_loss': 0.018, 'g_loss': 0.009, 'cls_loss': 0.009, time: 0.626
+2020-01-03 07:48:02.318388, batch: 730, lr: 0.00050, 'model_loss': 0.015, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.553
+2020-01-03 07:48:07.443565, batch: 740, lr: 0.00050, 'model_loss': 0.015, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.493
+2020-01-03 07:48:12.311651, batch: 750, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.01, time: 0.530
+2020-01-03 07:48:17.463002, batch: 760, lr: 0.00050, 'model_loss': 0.017, 'g_loss': 0.008, 'cls_loss': 0.009, time: 0.512
+2020-01-03 07:48:22.422387, batch: 770, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.007, 'cls_loss': 0.009, time: 0.488
+2020-01-03 07:48:27.342306, batch: 780, lr: 0.00050, 'model_loss': 0.017, 'g_loss': 0.007, 'cls_loss': 0.009, time: 0.486
+2020-01-03 07:48:32.379516, batch: 790, lr: 0.00050, 'model_loss': 0.017, 'g_loss': 0.008, 'cls_loss': 0.009, time: 0.517
+2020-01-03 07:48:37.299399, batch: 800, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.007, 'cls_loss': 0.009, time: 0.485
+2020-01-03 07:48:42.325092, batch: 810, lr: 0.00050, 'model_loss': 0.015, 'g_loss': 0.006, 'cls_loss': 0.009, time: 0.493
+2020-01-03 07:48:47.222291, batch: 820, lr: 0.00050, 'model_loss': 0.014, 'g_loss': 0.004, 'cls_loss': 0.01, time: 0.487
+2020-01-03 07:48:52.155577, batch: 830, lr: 0.00050, 'model_loss': 0.015, 'g_loss': 0.006, 'cls_loss': 0.009, time: 0.487
+2020-01-03 07:48:57.234142, batch: 840, lr: 0.00050, 'model_loss': 0.015, 'g_loss': 0.006, 'cls_loss': 0.009, time: 0.563
+2020-01-03 07:49:02.480800, batch: 850, lr: 0.00050, 'model_loss': 0.015, 'g_loss': 0.006, 'cls_loss': 0.009, time: 0.567
+2020-01-03 07:49:07.653169, batch: 860, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.007, 'cls_loss': 0.009, time: 0.480
+2020-01-03 07:49:12.601246, batch: 870, lr: 0.00050, 'model_loss': 0.017, 'g_loss': 0.008, 'cls_loss': 0.009, time: 0.506
+2020-01-03 07:49:17.918351, batch: 880, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.009, time: 0.488
+2020-01-03 07:49:22.893064, batch: 890, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.006, 'cls_loss': 0.009, time: 0.487
+2020-01-03 07:49:27.814107, batch: 900, lr: 0.00050, 'model_loss': 0.016, 'g_loss': 0.007, 'cls_loss': 0.009, time: 0.542
+2020-01-03 07:49:32.747914, batch: 910, lr: 0.00050, 'model_loss': 0.015, 'g_loss': 0.005, 'cls_loss': 0.009, time: 0.470
+2020-01-03 07:49:37.710803, batch: 920, lr: 0.00050, 'model_loss': 0.014, 'g_loss': 0.005, 'cls_loss': 0.009, time: 0.518
+2020-01-03 07:49:42.745436, batch: 930, lr: 0.00050, 'model_loss': 0.014, 'g_loss': 0.004, 'cls_loss': 0.009, time: 0.497
+2020-01-03 07:49:47.704326, batch: 940, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.004, 'cls_loss': 0.009, time: 0.489
+2020-01-03 07:49:52.645185, batch: 950, lr: 0.00050, 'model_loss': 0.014, 'g_loss': 0.006, 'cls_loss': 0.009, time: 0.492
+2020-01-03 07:49:57.700996, batch: 960, lr: 0.00050, 'model_loss': 0.015, 'g_loss': 0.006, 'cls_loss': 0.009, time: 0.499
+2020-01-03 07:50:02.922021, batch: 970, lr: 0.00050, 'model_loss': 0.014, 'g_loss': 0.005, 'cls_loss': 0.009, time: 0.507
+2020-01-03 07:50:07.907672, batch: 980, lr: 0.00050, 'model_loss': 0.014, 'g_loss': 0.006, 'cls_loss': 0.009, time: 0.481
+2020-01-03 07:50:12.840513, batch: 990, lr: 0.00050, 'model_loss': 0.014, 'g_loss': 0.006, 'cls_loss': 0.009, time: 0.495
+2020-01-03 07:50:18.711075, batch: 1000, lr: 0.00050, 'model_loss': 0.014, 'g_loss': 0.005, 'cls_loss': 0.008, time: 1.481
+2020-01-03 07:50:23.725805, batch: 1010, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.004, 'cls_loss': 0.008, time: 0.498
+2020-01-03 07:50:28.679497, batch: 1020, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.005, 'cls_loss': 0.008, time: 0.496
+2020-01-03 07:50:33.595865, batch: 1030, lr: 0.00050, 'model_loss': 0.014, 'g_loss': 0.007, 'cls_loss': 0.008, time: 0.486
+2020-01-03 07:50:38.637687, batch: 1040, lr: 0.00050, 'model_loss': 0.015, 'g_loss': 0.007, 'cls_loss': 0.008, time: 0.489
+2020-01-03 07:50:43.535689, batch: 1050, lr: 0.00050, 'model_loss': 0.014, 'g_loss': 0.007, 'cls_loss': 0.008, time: 0.484
+2020-01-03 07:50:48.461014, batch: 1060, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.006, 'cls_loss': 0.008, time: 0.486
+2020-01-03 07:50:53.410880, batch: 1070, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.007, 'cls_loss': 0.007, time: 0.481
+2020-01-03 07:50:58.416749, batch: 1080, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.007, 'cls_loss': 0.007, time: 0.483
+2020-01-03 07:51:03.390159, batch: 1090, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.007, time: 0.486
+2020-01-03 07:51:08.283079, batch: 1100, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.006, 'cls_loss': 0.007, time: 0.473
+2020-01-03 07:51:13.192230, batch: 1110, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.007, 'cls_loss': 0.007, time: 0.489
+2020-01-03 07:51:18.090072, batch: 1120, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.006, 'cls_loss': 0.007, time: 0.499
+2020-01-03 07:51:22.987208, batch: 1130, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.005, 'cls_loss': 0.007, time: 0.483
+2020-01-03 07:51:27.871591, batch: 1140, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.004, 'cls_loss': 0.007, time: 0.474
+2020-01-03 07:51:32.903226, batch: 1150, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.004, 'cls_loss': 0.008, time: 0.531
+2020-01-03 07:51:37.937371, batch: 1160, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.007, time: 0.507
+2020-01-03 07:51:42.919251, batch: 1170, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.007, time: 0.477
+2020-01-03 07:51:47.795826, batch: 1180, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.482
+2020-01-03 07:51:52.686008, batch: 1190, lr: 0.00050, 'model_loss': 0.014, 'g_loss': 0.007, 'cls_loss': 0.007, time: 0.524
+2020-01-03 07:51:57.552255, batch: 1200, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.007, time: 0.498
+2020-01-03 07:52:02.641104, batch: 1210, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.005, 'cls_loss': 0.008, time: 0.473
+2020-01-03 07:52:07.688487, batch: 1220, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.005, 'cls_loss': 0.008, time: 0.497
+2020-01-03 07:52:12.707434, batch: 1230, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.007, time: 0.574
+2020-01-03 07:52:17.654238, batch: 1240, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.007, time: 0.564
+2020-01-03 07:52:22.616961, batch: 1250, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.006, 'cls_loss': 0.007, time: 0.481
+2020-01-03 07:52:27.646203, batch: 1260, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.006, 'cls_loss': 0.007, time: 0.509
+2020-01-03 07:52:32.838990, batch: 1270, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.007, 'cls_loss': 0.006, time: 0.519
+2020-01-03 07:52:37.734218, batch: 1280, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.467
+2020-01-03 07:52:42.666454, batch: 1290, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.006, 'cls_loss': 0.007, time: 0.488
+2020-01-03 07:52:47.641473, batch: 1300, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.007, time: 0.495
+2020-01-03 07:52:52.612435, batch: 1310, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.517
+2020-01-03 07:52:57.513921, batch: 1320, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.007, 'cls_loss': 0.006, time: 0.482
+2020-01-03 07:53:02.460786, batch: 1330, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.007, 'cls_loss': 0.007, time: 0.499
+2020-01-03 07:53:07.478398, batch: 1340, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.007, time: 0.536
+2020-01-03 07:53:12.443208, batch: 1350, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.483
+2020-01-03 07:53:17.426934, batch: 1360, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.485
+2020-01-03 07:53:22.405000, batch: 1370, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.525
+2020-01-03 07:53:27.571890, batch: 1380, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.492
+2020-01-03 07:53:32.586746, batch: 1390, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.542
+2020-01-03 07:53:37.884515, batch: 1400, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.007, 'cls_loss': 0.006, time: 0.590
+2020-01-03 07:53:42.761836, batch: 1410, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.007, 'cls_loss': 0.006, time: 0.515
+2020-01-03 07:53:47.701760, batch: 1420, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.007, 'cls_loss': 0.006, time: 0.504
+2020-01-03 07:53:52.806316, batch: 1430, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.468
+2020-01-03 07:53:57.685590, batch: 1440, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.485
+2020-01-03 07:54:02.699595, batch: 1450, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.496
+2020-01-03 07:54:07.710897, batch: 1460, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.535
+2020-01-03 07:54:12.666606, batch: 1470, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.494
+2020-01-03 07:54:17.751063, batch: 1480, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.566
+2020-01-03 07:54:22.642649, batch: 1490, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.500
+2020-01-03 07:54:27.644836, batch: 1500, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.491
+2020-01-03 07:54:32.725122, batch: 1510, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.007, time: 0.483
+2020-01-03 07:54:37.753471, batch: 1520, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.473
+2020-01-03 07:54:42.921286, batch: 1530, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.486
+2020-01-03 07:54:48.336594, batch: 1540, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.499
+2020-01-03 07:54:53.203420, batch: 1550, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.489
+2020-01-03 07:54:58.083182, batch: 1560, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.007, 'cls_loss': 0.006, time: 0.474
+2020-01-03 07:55:03.325744, batch: 1570, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.007, 'cls_loss': 0.007, time: 0.544
+2020-01-03 07:55:08.396111, batch: 1580, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.485
+2020-01-03 07:55:13.309836, batch: 1590, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.506
+2020-01-03 07:55:18.268107, batch: 1600, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.479
+2020-01-03 07:55:23.331358, batch: 1610, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.546
+2020-01-03 07:55:28.409821, batch: 1620, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.500
+2020-01-03 07:55:33.369025, batch: 1630, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.504
+2020-01-03 07:55:38.450017, batch: 1640, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.502
+2020-01-03 07:55:43.684436, batch: 1650, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.486
+2020-01-03 07:55:48.901617, batch: 1660, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.529
+2020-01-03 07:55:53.946761, batch: 1670, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.541
+2020-01-03 07:55:59.070342, batch: 1680, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.495
+2020-01-03 07:56:04.610148, batch: 1690, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.007, 'cls_loss': 0.006, time: 0.631
+2020-01-03 07:56:09.529763, batch: 1700, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.492
+2020-01-03 07:56:14.680036, batch: 1710, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.482
+2020-01-03 07:56:20.223167, batch: 1720, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.497
+2020-01-03 07:56:25.228727, batch: 1730, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.007, time: 0.546
+2020-01-03 07:56:30.165802, batch: 1740, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.008, 'cls_loss': 0.006, time: 0.477
+2020-01-03 07:56:35.056893, batch: 1750, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.485
+2020-01-03 07:56:40.095855, batch: 1760, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.521
+2020-01-03 07:56:45.168078, batch: 1770, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.485
+2020-01-03 07:56:50.056462, batch: 1780, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.479
+2020-01-03 07:56:55.007506, batch: 1790, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.507
+2020-01-03 07:56:59.945227, batch: 1800, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.492
+2020-01-03 07:57:05.200855, batch: 1810, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.544
+2020-01-03 07:57:10.212390, batch: 1820, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.006, time: 0.481
+2020-01-03 07:57:15.199217, batch: 1830, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.472
+2020-01-03 07:57:20.120228, batch: 1840, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.484
+2020-01-03 07:57:24.989550, batch: 1850, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.477
+2020-01-03 07:57:29.875710, batch: 1860, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.484
+2020-01-03 07:57:35.154435, batch: 1870, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.639
+2020-01-03 07:57:40.230326, batch: 1880, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.487
+2020-01-03 07:57:45.147273, batch: 1890, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.527
+2020-01-03 07:57:50.149453, batch: 1900, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.494
+2020-01-03 07:57:55.191171, batch: 1910, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.493
+2020-01-03 07:58:00.081530, batch: 1920, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.495
+2020-01-03 07:58:05.024477, batch: 1930, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.479
+2020-01-03 07:58:09.979259, batch: 1940, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.499
+2020-01-03 07:58:14.878451, batch: 1950, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.474
+2020-01-03 07:58:19.771823, batch: 1960, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.473
+2020-01-03 07:58:24.559678, batch: 1970, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.476
+2020-01-03 07:58:29.598876, batch: 1980, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.555
+2020-01-03 07:58:34.469843, batch: 1990, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.525
+2020-01-03 07:58:40.450987, batch: 2000, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 1.446
+2020-01-03 07:58:45.370049, batch: 2010, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.485
+2020-01-03 07:58:50.377444, batch: 2020, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.499
+2020-01-03 07:58:55.266556, batch: 2030, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.487
+2020-01-03 07:59:00.497904, batch: 2040, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.500
+2020-01-03 07:59:05.559969, batch: 2050, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.476
+2020-01-03 07:59:10.785812, batch: 2060, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.511
+2020-01-03 07:59:15.803182, batch: 2070, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.488
+2020-01-03 07:59:20.928206, batch: 2080, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.511
+2020-01-03 07:59:26.108284, batch: 2090, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.477
+2020-01-03 07:59:31.195192, batch: 2100, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.007, 'cls_loss': 0.005, time: 0.495
+2020-01-03 07:59:36.115589, batch: 2110, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.007, 'cls_loss': 0.005, time: 0.504
+2020-01-03 07:59:41.200053, batch: 2120, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.513
+2020-01-03 07:59:46.261073, batch: 2130, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.490
+2020-01-03 07:59:51.196881, batch: 2140, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.542
+2020-01-03 07:59:56.177776, batch: 2150, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.506
+2020-01-03 08:00:01.157234, batch: 2160, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.483
+2020-01-03 08:00:06.130556, batch: 2170, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.490
+2020-01-03 08:00:11.106356, batch: 2180, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.471
+2020-01-03 08:00:16.041560, batch: 2190, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.496
+2020-01-03 08:00:20.926238, batch: 2200, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.473
+2020-01-03 08:00:26.129679, batch: 2210, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:00:31.087701, batch: 2220, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.480
+2020-01-03 08:00:35.889816, batch: 2230, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.007, 'cls_loss': 0.005, time: 0.474
+2020-01-03 08:00:40.806686, batch: 2240, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.506
+2020-01-03 08:00:45.690857, batch: 2250, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.487
+2020-01-03 08:00:50.750623, batch: 2260, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:00:55.607350, batch: 2270, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.487
+2020-01-03 08:01:00.683781, batch: 2280, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.485
+2020-01-03 08:01:05.622548, batch: 2290, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.477
+2020-01-03 08:01:10.685588, batch: 2300, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.528
+2020-01-03 08:01:15.582981, batch: 2310, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:01:20.615008, batch: 2320, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.477
+2020-01-03 08:01:25.736445, batch: 2330, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.519
+2020-01-03 08:01:30.747818, batch: 2340, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.508
+2020-01-03 08:01:35.698738, batch: 2350, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.511
+2020-01-03 08:01:40.790789, batch: 2360, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.475
+2020-01-03 08:01:45.731291, batch: 2370, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.534
+2020-01-03 08:01:50.961720, batch: 2380, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.493
+2020-01-03 08:01:55.817747, batch: 2390, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.007, 'cls_loss': 0.005, time: 0.480
+2020-01-03 08:02:00.807503, batch: 2400, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.007, 'cls_loss': 0.005, time: 0.539
+2020-01-03 08:02:05.821668, batch: 2410, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.510
+2020-01-03 08:02:10.846840, batch: 2420, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.481
+2020-01-03 08:02:15.777155, batch: 2430, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.480
+2020-01-03 08:02:20.608205, batch: 2440, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.493
+2020-01-03 08:02:25.510670, batch: 2450, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.491
+2020-01-03 08:02:30.493550, batch: 2460, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.498
+2020-01-03 08:02:35.487291, batch: 2470, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.469
+2020-01-03 08:02:40.472357, batch: 2480, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.488
+2020-01-03 08:02:45.662484, batch: 2490, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.515
+2020-01-03 08:02:50.757069, batch: 2500, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.496
+2020-01-03 08:02:55.682333, batch: 2510, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.504
+2020-01-03 08:03:00.680493, batch: 2520, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.506
+2020-01-03 08:03:06.230674, batch: 2530, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.563
+2020-01-03 08:03:11.261472, batch: 2540, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.481
+2020-01-03 08:03:16.242464, batch: 2550, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.508
+2020-01-03 08:03:21.172593, batch: 2560, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.007, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:03:26.176721, batch: 2570, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:03:31.030605, batch: 2580, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.479
+2020-01-03 08:03:35.858235, batch: 2590, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.472
+2020-01-03 08:03:40.815625, batch: 2600, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.485
+2020-01-03 08:03:45.866385, batch: 2610, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.502
+2020-01-03 08:03:50.950577, batch: 2620, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.487
+2020-01-03 08:03:55.848274, batch: 2630, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.486
+2020-01-03 08:04:00.922858, batch: 2640, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.502
+2020-01-03 08:04:06.042045, batch: 2650, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:04:10.986747, batch: 2660, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.508
+2020-01-03 08:04:16.023430, batch: 2670, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.510
+2020-01-03 08:04:20.902227, batch: 2680, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:04:25.849744, batch: 2690, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.491
+2020-01-03 08:04:30.758642, batch: 2700, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.474
+2020-01-03 08:04:35.646482, batch: 2710, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:04:40.565068, batch: 2720, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.478
+2020-01-03 08:04:45.530171, batch: 2730, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.470
+2020-01-03 08:04:50.499716, batch: 2740, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.491
+2020-01-03 08:04:56.071167, batch: 2750, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.496
+2020-01-03 08:05:01.279784, batch: 2760, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.504
+2020-01-03 08:05:06.392603, batch: 2770, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.496
+2020-01-03 08:05:11.300451, batch: 2780, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.007, 'cls_loss': 0.005, time: 0.481
+2020-01-03 08:05:16.276128, batch: 2790, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.477
+2020-01-03 08:05:21.351926, batch: 2800, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.492
+2020-01-03 08:05:26.349133, batch: 2810, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.492
+2020-01-03 08:05:31.310598, batch: 2820, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:05:36.271958, batch: 2830, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.486
+2020-01-03 08:05:41.275222, batch: 2840, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.546
+2020-01-03 08:05:46.186142, batch: 2850, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.486
+2020-01-03 08:05:51.231399, batch: 2860, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:05:56.081139, batch: 2870, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.490
+2020-01-03 08:06:01.077218, batch: 2880, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.477
+2020-01-03 08:06:06.029024, batch: 2890, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.487
+2020-01-03 08:06:10.967506, batch: 2900, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:06:15.924965, batch: 2910, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.500
+2020-01-03 08:06:20.858245, batch: 2920, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:06:25.965864, batch: 2930, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.498
+2020-01-03 08:06:30.858040, batch: 2940, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.472
+2020-01-03 08:06:35.811323, batch: 2950, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.487
+2020-01-03 08:06:40.686476, batch: 2960, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:06:45.701523, batch: 2970, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.504
+2020-01-03 08:06:50.686085, batch: 2980, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.006, time: 0.492
+2020-01-03 08:06:55.577908, batch: 2990, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.006, time: 0.486
+2020-01-03 08:07:01.367498, batch: 3000, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 1.405
+2020-01-03 08:07:06.339209, batch: 3010, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.500
+2020-01-03 08:07:11.267251, batch: 3020, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.501
+2020-01-03 08:07:16.173821, batch: 3030, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.481
+2020-01-03 08:07:21.249381, batch: 3040, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.481
+2020-01-03 08:07:26.183682, batch: 3050, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.488
+2020-01-03 08:07:31.053576, batch: 3060, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.006, time: 0.475
+2020-01-03 08:07:35.950293, batch: 3070, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.006, time: 0.482
+2020-01-03 08:07:40.908411, batch: 3080, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.006, time: 0.494
+2020-01-03 08:07:45.903501, batch: 3090, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.480
+2020-01-03 08:07:50.884707, batch: 3100, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.003, 'cls_loss': 0.006, time: 0.512
+2020-01-03 08:07:56.130668, batch: 3110, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.518
+2020-01-03 08:08:01.230341, batch: 3120, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.505
+2020-01-03 08:08:06.257681, batch: 3130, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.490
+2020-01-03 08:08:11.173399, batch: 3140, lr: 0.00050, 'model_loss': 0.012, 'g_loss': 0.007, 'cls_loss': 0.005, time: 0.511
+2020-01-03 08:08:16.108832, batch: 3150, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.487
+2020-01-03 08:08:20.972119, batch: 3160, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.474
+2020-01-03 08:08:25.865655, batch: 3170, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.475
+2020-01-03 08:08:30.855423, batch: 3180, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.560
+2020-01-03 08:08:35.784416, batch: 3190, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:08:40.854463, batch: 3200, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.540
+2020-01-03 08:08:45.830655, batch: 3210, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.486
+2020-01-03 08:08:50.749277, batch: 3220, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:08:55.636234, batch: 3230, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.484
+2020-01-03 08:09:00.523302, batch: 3240, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.493
+2020-01-03 08:09:05.665442, batch: 3250, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.472
+2020-01-03 08:09:10.579005, batch: 3260, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:09:15.573519, batch: 3270, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.524
+2020-01-03 08:09:20.477323, batch: 3280, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.503
+2020-01-03 08:09:25.427777, batch: 3290, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.486
+2020-01-03 08:09:30.311627, batch: 3300, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:09:35.202837, batch: 3310, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.496
+2020-01-03 08:09:40.216230, batch: 3320, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.486
+2020-01-03 08:09:45.142837, batch: 3330, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.580
+2020-01-03 08:09:50.027796, batch: 3340, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.519
+2020-01-03 08:09:55.091136, batch: 3350, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.498
+2020-01-03 08:10:00.000472, batch: 3360, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.006, time: 0.490
+2020-01-03 08:10:05.071361, batch: 3370, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.494
+2020-01-03 08:10:10.160401, batch: 3380, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.495
+2020-01-03 08:10:15.018626, batch: 3390, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:10:19.911462, batch: 3400, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.487
+2020-01-03 08:10:24.967676, batch: 3410, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:10:30.052158, batch: 3420, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:10:34.935108, batch: 3430, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:10:39.940410, batch: 3440, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.501
+2020-01-03 08:10:45.242611, batch: 3450, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.567
+2020-01-03 08:10:50.317554, batch: 3460, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.528
+2020-01-03 08:10:55.241018, batch: 3470, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:11:00.060025, batch: 3480, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:11:05.590129, batch: 3490, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.596
+2020-01-03 08:11:11.050387, batch: 3500, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.512
+2020-01-03 08:11:16.235841, batch: 3510, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.488
+2020-01-03 08:11:21.241873, batch: 3520, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.485
+2020-01-03 08:11:26.553161, batch: 3530, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.494
+2020-01-03 08:11:31.619223, batch: 3540, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.505
+2020-01-03 08:11:36.523801, batch: 3550, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.477
+2020-01-03 08:11:41.378022, batch: 3560, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:11:46.374001, batch: 3570, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.486
+2020-01-03 08:11:51.379875, batch: 3580, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.492
+2020-01-03 08:11:56.284783, batch: 3590, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:12:01.233778, batch: 3600, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.494
+2020-01-03 08:12:06.154806, batch: 3610, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.499
+2020-01-03 08:12:11.047848, batch: 3620, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.505
+2020-01-03 08:12:15.844221, batch: 3630, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.474
+2020-01-03 08:12:20.805198, batch: 3640, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.491
+2020-01-03 08:12:25.714689, batch: 3650, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:12:30.573796, batch: 3660, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.490
+2020-01-03 08:12:35.489141, batch: 3670, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.480
+2020-01-03 08:12:40.435154, batch: 3680, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.483
+2020-01-03 08:12:46.049865, batch: 3690, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.818
+2020-01-03 08:12:51.277893, batch: 3700, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.475
+2020-01-03 08:12:56.533808, batch: 3710, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.551
+2020-01-03 08:13:01.505093, batch: 3720, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.494
+2020-01-03 08:13:06.488125, batch: 3730, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.486
+2020-01-03 08:13:11.483721, batch: 3740, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.520
+2020-01-03 08:13:16.350832, batch: 3750, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:13:21.336920, batch: 3760, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.495
+2020-01-03 08:13:26.301070, batch: 3770, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.474
+2020-01-03 08:13:31.304150, batch: 3780, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.532
+2020-01-03 08:13:36.230683, batch: 3790, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:13:41.231837, batch: 3800, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.561
+2020-01-03 08:13:46.187253, batch: 3810, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.505
+2020-01-03 08:13:51.359612, batch: 3820, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.528
+2020-01-03 08:13:56.295563, batch: 3830, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:14:01.244849, batch: 3840, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:14:06.205604, batch: 3850, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.481
+2020-01-03 08:14:11.166885, batch: 3860, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.482
+2020-01-03 08:14:16.106535, batch: 3870, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.473
+2020-01-03 08:14:21.008150, batch: 3880, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.509
+2020-01-03 08:14:25.985530, batch: 3890, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.482
+2020-01-03 08:14:31.023789, batch: 3900, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.492
+2020-01-03 08:14:35.968351, batch: 3910, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:14:40.889586, batch: 3920, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:14:45.721122, batch: 3930, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.490
+2020-01-03 08:14:50.666855, batch: 3940, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:14:55.573053, batch: 3950, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.491
+2020-01-03 08:15:00.451830, batch: 3960, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.490
+2020-01-03 08:15:05.531099, batch: 3970, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.486
+2020-01-03 08:15:10.573797, batch: 3980, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:15:15.570221, batch: 3990, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.489
+2020-01-03 08:15:21.465963, batch: 4000, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 1.480
+2020-01-03 08:15:26.274422, batch: 4010, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:15:31.243154, batch: 4020, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.477
+2020-01-03 08:15:36.206697, batch: 4030, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:15:41.123451, batch: 4040, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.486
+2020-01-03 08:15:46.181835, batch: 4050, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.492
+2020-01-03 08:15:51.131615, batch: 4060, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:15:56.109530, batch: 4070, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.629
+2020-01-03 08:16:01.111931, batch: 4080, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.546
+2020-01-03 08:16:06.045479, batch: 4090, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:16:11.081002, batch: 4100, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.488
+2020-01-03 08:16:16.258795, batch: 4110, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.595
+2020-01-03 08:16:21.268251, batch: 4120, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.476
+2020-01-03 08:16:26.281603, batch: 4130, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.535
+2020-01-03 08:16:31.507536, batch: 4140, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.516
+2020-01-03 08:16:36.391883, batch: 4150, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.477
+2020-01-03 08:16:41.387413, batch: 4160, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.513
+2020-01-03 08:16:46.315716, batch: 4170, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.482
+2020-01-03 08:16:51.216504, batch: 4180, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.477
+2020-01-03 08:16:56.304034, batch: 4190, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.492
+2020-01-03 08:17:01.247994, batch: 4200, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:17:06.588226, batch: 4210, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.540
+2020-01-03 08:17:11.916622, batch: 4220, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.572
+2020-01-03 08:17:16.858928, batch: 4230, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.506
+2020-01-03 08:17:21.893897, batch: 4240, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.487
+2020-01-03 08:17:26.818715, batch: 4250, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.481
+2020-01-03 08:17:31.819854, batch: 4260, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.534
+2020-01-03 08:17:36.686972, batch: 4270, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:17:41.634292, batch: 4280, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.517
+2020-01-03 08:17:46.582518, batch: 4290, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:17:51.775880, batch: 4300, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.480
+2020-01-03 08:17:56.914525, batch: 4310, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:18:02.193436, batch: 4320, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.562
+2020-01-03 08:18:07.229150, batch: 4330, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.493
+2020-01-03 08:18:12.125351, batch: 4340, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:18:17.034816, batch: 4350, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.506
+2020-01-03 08:18:21.947702, batch: 4360, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:18:26.950212, batch: 4370, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.557
+2020-01-03 08:18:31.878433, batch: 4380, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:18:36.815390, batch: 4390, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.500
+2020-01-03 08:18:41.936328, batch: 4400, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.486
+2020-01-03 08:18:46.801577, batch: 4410, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.482
+2020-01-03 08:18:51.771187, batch: 4420, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.471
+2020-01-03 08:18:56.749081, batch: 4430, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.558
+2020-01-03 08:19:01.658094, batch: 4440, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.482
+2020-01-03 08:19:06.511713, batch: 4450, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.487
+2020-01-03 08:19:11.518593, batch: 4460, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.507
+2020-01-03 08:19:16.417876, batch: 4470, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.499
+2020-01-03 08:19:21.382695, batch: 4480, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:19:26.491815, batch: 4490, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:19:31.318222, batch: 4500, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:19:36.205350, batch: 4510, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.500
+2020-01-03 08:19:41.274316, batch: 4520, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.476
+2020-01-03 08:19:46.099248, batch: 4530, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:19:51.020032, batch: 4540, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:19:55.946759, batch: 4550, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:20:00.885497, batch: 4560, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.482
+2020-01-03 08:20:05.849434, batch: 4570, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.480
+2020-01-03 08:20:10.895016, batch: 4580, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.482
+2020-01-03 08:20:15.887158, batch: 4590, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.494
+2020-01-03 08:20:20.727398, batch: 4600, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.475
+2020-01-03 08:20:25.718996, batch: 4610, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.511
+2020-01-03 08:20:30.736878, batch: 4620, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.483
+2020-01-03 08:20:35.864292, batch: 4630, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.498
+2020-01-03 08:20:40.814319, batch: 4640, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:20:45.851982, batch: 4650, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.491
+2020-01-03 08:20:51.011729, batch: 4660, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.515
+2020-01-03 08:20:55.895043, batch: 4670, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.528
+2020-01-03 08:21:00.804628, batch: 4680, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.505
+2020-01-03 08:21:06.281362, batch: 4690, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.525
+2020-01-03 08:21:11.301979, batch: 4700, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.501
+2020-01-03 08:21:16.184275, batch: 4710, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.521
+2020-01-03 08:21:21.160058, batch: 4720, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.491
+2020-01-03 08:21:26.404294, batch: 4730, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.534
+2020-01-03 08:21:31.643173, batch: 4740, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.480
+2020-01-03 08:21:36.469237, batch: 4750, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.477
+2020-01-03 08:21:41.275993, batch: 4760, lr: 0.00050, 'model_loss': 0.013, 'g_loss': 0.007, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:21:46.226571, batch: 4770, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.484
+2020-01-03 08:21:51.203958, batch: 4780, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.497
+2020-01-03 08:21:56.214579, batch: 4790, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.606
+2020-01-03 08:22:01.200376, batch: 4800, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.505
+2020-01-03 08:22:06.222219, batch: 4810, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:22:11.451655, batch: 4820, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.500
+2020-01-03 08:22:16.415819, batch: 4830, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.496
+2020-01-03 08:22:21.357751, batch: 4840, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.496
+2020-01-03 08:22:26.418300, batch: 4850, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.492
+2020-01-03 08:22:31.299596, batch: 4860, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.489
+2020-01-03 08:22:36.351555, batch: 4870, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.546
+2020-01-03 08:22:41.254071, batch: 4880, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.468
+2020-01-03 08:22:46.132660, batch: 4890, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.474
+2020-01-03 08:22:51.159928, batch: 4900, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.492
+2020-01-03 08:22:56.125052, batch: 4910, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.496
+2020-01-03 08:23:01.594033, batch: 4920, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.551
+2020-01-03 08:23:06.775005, batch: 4930, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.499
+2020-01-03 08:23:11.775181, batch: 4940, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.497
+2020-01-03 08:23:16.620046, batch: 4950, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:23:21.745107, batch: 4960, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.517
+2020-01-03 08:23:26.796391, batch: 4970, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:23:31.794212, batch: 4980, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.495
+2020-01-03 08:23:36.684550, batch: 4990, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.475
+2020-01-03 08:23:42.741684, batch: 5000, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.006, time: 1.602
+2020-01-03 08:23:47.699043, batch: 5010, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:23:52.581059, batch: 5020, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.495
+2020-01-03 08:23:57.697080, batch: 5030, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.481
+2020-01-03 08:24:02.767027, batch: 5040, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.488
+2020-01-03 08:24:07.893796, batch: 5050, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.514
+2020-01-03 08:24:12.878387, batch: 5060, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.488
+2020-01-03 08:24:18.065333, batch: 5070, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.730
+2020-01-03 08:24:23.245155, batch: 5080, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.591
+2020-01-03 08:24:28.491505, batch: 5090, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.006, 'cls_loss': 0.004, time: 0.491
+2020-01-03 08:24:33.668771, batch: 5100, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.534
+2020-01-03 08:24:38.569131, batch: 5110, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.505
+2020-01-03 08:24:43.490221, batch: 5120, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.493
+2020-01-03 08:24:48.943605, batch: 5130, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:24:53.910105, batch: 5140, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:24:58.806424, batch: 5150, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.565
+2020-01-03 08:25:04.173537, batch: 5160, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.500
+2020-01-03 08:25:09.220012, batch: 5170, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.541
+2020-01-03 08:25:14.395410, batch: 5180, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.501
+2020-01-03 08:25:19.289479, batch: 5190, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.474
+2020-01-03 08:25:24.360315, batch: 5200, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:25:29.413684, batch: 5210, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.520
+2020-01-03 08:25:34.399545, batch: 5220, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.538
+2020-01-03 08:25:39.380729, batch: 5230, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.513
+2020-01-03 08:25:44.452174, batch: 5240, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.531
+2020-01-03 08:25:49.657141, batch: 5250, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.543
+2020-01-03 08:25:54.637184, batch: 5260, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.486
+2020-01-03 08:25:59.542035, batch: 5270, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.515
+2020-01-03 08:26:04.531984, batch: 5280, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.504
+2020-01-03 08:26:09.680273, batch: 5290, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.480
+2020-01-03 08:26:14.578576, batch: 5300, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:26:19.497714, batch: 5310, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:26:24.336889, batch: 5320, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.502
+2020-01-03 08:26:29.223430, batch: 5330, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:26:34.621831, batch: 5340, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.510
+2020-01-03 08:26:39.730326, batch: 5350, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:26:44.754437, batch: 5360, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.521
+2020-01-03 08:26:49.786382, batch: 5370, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.475
+2020-01-03 08:26:54.843155, batch: 5380, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.494
+2020-01-03 08:26:59.949608, batch: 5390, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.521
+2020-01-03 08:27:05.577811, batch: 5400, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.565
+2020-01-03 08:27:10.596497, batch: 5410, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.006, 'cls_loss': 0.004, time: 0.487
+2020-01-03 08:27:15.511168, batch: 5420, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.004, time: 0.486
+2020-01-03 08:27:20.479595, batch: 5430, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.006, 'cls_loss': 0.004, time: 0.497
+2020-01-03 08:27:25.356496, batch: 5440, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.480
+2020-01-03 08:27:30.462473, batch: 5450, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:27:35.499668, batch: 5460, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.490
+2020-01-03 08:27:40.523858, batch: 5470, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.505
+2020-01-03 08:27:45.436761, batch: 5480, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.479
+2020-01-03 08:27:50.442498, batch: 5490, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.524
+2020-01-03 08:27:55.396997, batch: 5500, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.509
+2020-01-03 08:28:00.272639, batch: 5510, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.477
+2020-01-03 08:28:05.525705, batch: 5520, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.578
+2020-01-03 08:28:10.782519, batch: 5530, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.481
+2020-01-03 08:28:15.820819, batch: 5540, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.491
+2020-01-03 08:28:20.747584, batch: 5550, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.485
+2020-01-03 08:28:25.719035, batch: 5560, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.514
+2020-01-03 08:28:30.652085, batch: 5570, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.498
+2020-01-03 08:28:35.641175, batch: 5580, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:28:40.609028, batch: 5590, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.504
+2020-01-03 08:28:45.498505, batch: 5600, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.492
+2020-01-03 08:28:50.558498, batch: 5610, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.522
+2020-01-03 08:28:55.767699, batch: 5620, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.533
+2020-01-03 08:29:00.627690, batch: 5630, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.496
+2020-01-03 08:29:05.593506, batch: 5640, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.503
+2020-01-03 08:29:10.659074, batch: 5650, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.541
+2020-01-03 08:29:15.705075, batch: 5660, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.521
+2020-01-03 08:29:20.765667, batch: 5670, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.499
+2020-01-03 08:29:25.743286, batch: 5680, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.556
+2020-01-03 08:29:30.718699, batch: 5690, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.510
+2020-01-03 08:29:35.867128, batch: 5700, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.006, time: 0.580
+2020-01-03 08:29:40.978030, batch: 5710, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:29:45.930009, batch: 5720, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.487
+2020-01-03 08:29:50.884615, batch: 5730, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:29:55.758892, batch: 5740, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.506
+2020-01-03 08:30:00.682277, batch: 5750, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.500
+2020-01-03 08:30:05.719229, batch: 5760, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.582
+2020-01-03 08:30:10.727702, batch: 5770, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.528
+2020-01-03 08:30:15.804018, batch: 5780, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.501
+2020-01-03 08:30:20.902459, batch: 5790, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:30:25.824698, batch: 5800, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.486
+2020-01-03 08:30:30.807636, batch: 5810, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.484
+2020-01-03 08:30:35.991751, batch: 5820, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.506
+2020-01-03 08:30:40.986155, batch: 5830, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.473
+2020-01-03 08:30:45.982382, batch: 5840, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.494
+2020-01-03 08:30:50.935885, batch: 5850, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.492
+2020-01-03 08:30:55.917726, batch: 5860, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.509
+2020-01-03 08:31:00.876604, batch: 5870, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.500
+2020-01-03 08:31:06.098467, batch: 5880, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.549
+2020-01-03 08:31:11.083400, batch: 5890, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.492
+2020-01-03 08:31:16.102213, batch: 5900, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.495
+2020-01-03 08:31:21.158494, batch: 5910, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.480
+2020-01-03 08:31:26.043602, batch: 5920, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.485
+2020-01-03 08:31:30.933150, batch: 5930, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.480
+2020-01-03 08:31:35.951129, batch: 5940, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.481
+2020-01-03 08:31:41.133095, batch: 5950, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.497
+2020-01-03 08:31:46.366358, batch: 5960, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.575
+2020-01-03 08:31:51.256326, batch: 5970, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.546
+2020-01-03 08:31:56.190537, batch: 5980, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.006, 'cls_loss': 0.005, time: 0.530
+2020-01-03 08:32:01.140032, batch: 5990, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.501
+2020-01-03 08:32:07.203697, batch: 6000, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 1.301
+2020-01-03 08:32:12.080275, batch: 6010, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.486
+2020-01-03 08:32:16.966171, batch: 6020, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.489
+2020-01-03 08:32:22.037115, batch: 6030, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:32:27.175358, batch: 6040, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.574
+2020-01-03 08:32:32.361058, batch: 6050, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.482
+2020-01-03 08:32:37.445566, batch: 6060, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.548
+2020-01-03 08:32:42.481288, batch: 6070, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.560
+2020-01-03 08:32:47.409400, batch: 6080, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:32:52.389553, batch: 6090, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:32:57.374470, batch: 6100, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:33:02.351995, batch: 6110, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.530
+2020-01-03 08:33:07.524742, batch: 6120, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.606
+2020-01-03 08:33:12.629785, batch: 6130, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.504
+2020-01-03 08:33:17.514423, batch: 6140, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.478
+2020-01-03 08:33:22.406103, batch: 6150, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.489
+2020-01-03 08:33:27.449224, batch: 6160, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.513
+2020-01-03 08:33:32.469616, batch: 6170, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.521
+2020-01-03 08:33:37.420113, batch: 6180, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.519
+2020-01-03 08:33:42.472524, batch: 6190, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.500
+2020-01-03 08:33:47.406598, batch: 6200, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.481
+2020-01-03 08:33:52.259411, batch: 6210, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.495
+2020-01-03 08:33:57.265385, batch: 6220, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.499
+2020-01-03 08:34:02.161074, batch: 6230, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.487
+2020-01-03 08:34:07.181381, batch: 6240, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.498
+2020-01-03 08:34:12.257266, batch: 6250, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.002, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:34:17.212377, batch: 6260, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:34:22.177161, batch: 6270, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.511
+2020-01-03 08:34:26.991750, batch: 6280, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.497
+2020-01-03 08:34:31.884909, batch: 6290, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.531
+2020-01-03 08:34:37.008254, batch: 6300, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.491
+2020-01-03 08:34:41.956879, batch: 6310, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.486
+2020-01-03 08:34:46.926182, batch: 6320, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.510
+2020-01-03 08:34:51.986793, batch: 6330, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.533
+2020-01-03 08:34:57.052796, batch: 6340, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.498
+2020-01-03 08:35:01.955030, batch: 6350, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.474
+2020-01-03 08:35:06.952528, batch: 6360, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.521
+2020-01-03 08:35:12.400067, batch: 6370, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.501
+2020-01-03 08:35:17.426976, batch: 6380, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.559
+2020-01-03 08:35:22.498834, batch: 6390, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.501
+2020-01-03 08:35:27.462467, batch: 6400, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.490
+2020-01-03 08:35:32.499669, batch: 6410, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.476
+2020-01-03 08:35:37.529644, batch: 6420, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.497
+2020-01-03 08:35:42.409286, batch: 6430, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.487
+2020-01-03 08:35:47.379077, batch: 6440, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.482
+2020-01-03 08:35:52.258146, batch: 6450, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.482
+2020-01-03 08:35:57.202313, batch: 6460, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.490
+2020-01-03 08:36:02.198732, batch: 6470, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.535
+2020-01-03 08:36:07.356500, batch: 6480, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.521
+2020-01-03 08:36:12.379034, batch: 6490, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.494
+2020-01-03 08:36:17.415812, batch: 6500, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.512
+2020-01-03 08:36:22.415580, batch: 6510, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:36:27.469039, batch: 6520, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.491
+2020-01-03 08:36:32.463999, batch: 6530, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:36:37.326247, batch: 6540, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.468
+2020-01-03 08:36:42.255506, batch: 6550, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.502
+2020-01-03 08:36:47.250228, batch: 6560, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.564
+2020-01-03 08:36:52.189603, batch: 6570, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.511
+2020-01-03 08:36:57.159200, batch: 6580, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.498
+2020-01-03 08:37:02.202260, batch: 6590, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.511
+2020-01-03 08:37:07.224319, batch: 6600, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.480
+2020-01-03 08:37:12.242198, batch: 6610, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.494
+2020-01-03 08:37:17.302692, batch: 6620, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.526
+2020-01-03 08:37:22.197062, batch: 6630, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.480
+2020-01-03 08:37:27.116044, batch: 6640, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:37:32.126974, batch: 6650, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:37:37.124001, batch: 6660, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.518
+2020-01-03 08:37:42.200520, batch: 6670, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.499
+2020-01-03 08:37:47.334307, batch: 6680, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.490
+2020-01-03 08:37:52.367649, batch: 6690, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:37:57.223076, batch: 6700, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.499
+2020-01-03 08:38:02.252040, batch: 6710, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.552
+2020-01-03 08:38:07.318701, batch: 6720, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:38:12.548710, batch: 6730, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.611
+2020-01-03 08:38:17.595984, batch: 6740, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.502
+2020-01-03 08:38:22.492589, batch: 6750, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.485
+2020-01-03 08:38:27.651773, batch: 6760, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.558
+2020-01-03 08:38:32.736058, batch: 6770, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.496
+2020-01-03 08:38:37.657466, batch: 6780, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.475
+2020-01-03 08:38:42.703914, batch: 6790, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.495
+2020-01-03 08:38:47.610285, batch: 6800, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.486
+2020-01-03 08:38:52.583840, batch: 6810, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.006, 'cls_loss': 0.004, time: 0.484
+2020-01-03 08:38:57.495056, batch: 6820, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.002, 'cls_loss': 0.005, time: 0.506
+2020-01-03 08:39:02.524360, batch: 6830, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.509
+2020-01-03 08:39:07.511151, batch: 6840, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.533
+2020-01-03 08:39:12.535921, batch: 6850, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.480
+2020-01-03 08:39:17.449769, batch: 6860, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.495
+2020-01-03 08:39:22.386467, batch: 6870, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.502
+2020-01-03 08:39:27.573180, batch: 6880, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:39:32.905155, batch: 6890, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.002, 'cls_loss': 0.004, time: 0.519
+2020-01-03 08:39:37.847118, batch: 6900, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.496
+2020-01-03 08:39:42.842866, batch: 6910, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.491
+2020-01-03 08:39:47.889681, batch: 6920, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.506
+2020-01-03 08:39:52.822688, batch: 6930, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.477
+2020-01-03 08:39:58.091722, batch: 6940, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.509
+2020-01-03 08:40:03.242853, batch: 6950, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.490
+2020-01-03 08:40:08.055697, batch: 6960, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.477
+2020-01-03 08:40:12.878699, batch: 6970, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.503
+2020-01-03 08:40:18.144651, batch: 6980, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.543
+2020-01-03 08:40:23.601570, batch: 6990, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.533
+2020-01-03 08:40:29.641486, batch: 7000, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 1.430
+2020-01-03 08:40:34.604267, batch: 7010, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.473
+2020-01-03 08:40:39.496944, batch: 7020, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.475
+2020-01-03 08:40:44.391795, batch: 7030, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.486
+2020-01-03 08:40:49.451473, batch: 7040, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.518
+2020-01-03 08:40:54.529349, batch: 7050, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.503
+2020-01-03 08:40:59.812041, batch: 7060, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.557
+2020-01-03 08:41:04.839810, batch: 7070, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.476
+2020-01-03 08:41:09.777920, batch: 7080, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.480
+2020-01-03 08:41:14.723426, batch: 7090, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.482
+2020-01-03 08:41:19.622120, batch: 7100, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.480
+2020-01-03 08:41:24.748513, batch: 7110, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.499
+2020-01-03 08:41:29.684790, batch: 7120, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.486
+2020-01-03 08:41:34.817251, batch: 7130, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.574
+2020-01-03 08:41:39.742966, batch: 7140, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.518
+2020-01-03 08:41:44.730221, batch: 7150, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.531
+2020-01-03 08:41:49.646152, batch: 7160, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.487
+2020-01-03 08:41:54.643711, batch: 7170, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.532
+2020-01-03 08:41:59.740884, batch: 7180, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.491
+2020-01-03 08:42:04.838534, batch: 7190, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.481
+2020-01-03 08:42:09.778588, batch: 7200, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:42:14.616423, batch: 7210, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.477
+2020-01-03 08:42:19.636499, batch: 7220, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.500
+2020-01-03 08:42:24.573029, batch: 7230, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.499
+2020-01-03 08:42:29.668989, batch: 7240, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.517
+2020-01-03 08:42:34.764898, batch: 7250, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.487
+2020-01-03 08:42:39.760115, batch: 7260, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:42:44.700725, batch: 7270, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.494
+2020-01-03 08:42:49.673150, batch: 7280, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.499
+2020-01-03 08:42:54.653332, batch: 7290, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.479
+2020-01-03 08:42:59.585459, batch: 7300, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.495
+2020-01-03 08:43:04.590674, batch: 7310, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.474
+2020-01-03 08:43:09.574622, batch: 7320, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.543
+2020-01-03 08:43:14.524279, batch: 7330, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.507
+2020-01-03 08:43:19.440179, batch: 7340, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.481
+2020-01-03 08:43:24.300004, batch: 7350, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.487
+2020-01-03 08:43:29.294837, batch: 7360, lr: 0.00050, 'model_loss': 0.011, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.539
+2020-01-03 08:43:34.258020, batch: 7370, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.516
+2020-01-03 08:43:39.564111, batch: 7380, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:43:44.452163, batch: 7390, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:43:49.417701, batch: 7400, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.482
+2020-01-03 08:43:54.424465, batch: 7410, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.502
+2020-01-03 08:43:59.315426, batch: 7420, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:44:04.383181, batch: 7430, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.491
+2020-01-03 08:44:09.323555, batch: 7440, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.493
+2020-01-03 08:44:14.386024, batch: 7450, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.533
+2020-01-03 08:44:19.391279, batch: 7460, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.496
+2020-01-03 08:44:24.408569, batch: 7470, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:44:29.655376, batch: 7480, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.514
+2020-01-03 08:44:34.676381, batch: 7490, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.501
+2020-01-03 08:44:39.637029, batch: 7500, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.481
+2020-01-03 08:44:44.541184, batch: 7510, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.500
+2020-01-03 08:44:49.418519, batch: 7520, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.490
+2020-01-03 08:44:54.412394, batch: 7530, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:44:59.313926, batch: 7540, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.487
+2020-01-03 08:45:04.322167, batch: 7550, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.493
+2020-01-03 08:45:09.388657, batch: 7560, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.484
+2020-01-03 08:45:14.346439, batch: 7570, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.528
+2020-01-03 08:45:19.267682, batch: 7580, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.498
+2020-01-03 08:45:24.264569, batch: 7590, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.489
+2020-01-03 08:45:29.335941, batch: 7600, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.486
+2020-01-03 08:45:34.253714, batch: 7610, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.472
+2020-01-03 08:45:39.378765, batch: 7620, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:45:44.617923, batch: 7630, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.501
+2020-01-03 08:45:49.542228, batch: 7640, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.475
+2020-01-03 08:45:54.661426, batch: 7650, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.498
+2020-01-03 08:45:59.630833, batch: 7660, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.512
+2020-01-03 08:46:04.679367, batch: 7670, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.502
+2020-01-03 08:46:09.670329, batch: 7680, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:46:14.728677, batch: 7690, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.481
+2020-01-03 08:46:19.591206, batch: 7700, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.484
+2020-01-03 08:46:24.704183, batch: 7710, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.539
+2020-01-03 08:46:29.549784, batch: 7720, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.490
+2020-01-03 08:46:34.491782, batch: 7730, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.474
+2020-01-03 08:46:39.775121, batch: 7740, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.489
+2020-01-03 08:46:44.688398, batch: 7750, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.508
+2020-01-03 08:46:49.610736, batch: 7760, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.500
+2020-01-03 08:46:54.528168, batch: 7770, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:46:59.449467, batch: 7780, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.486
+2020-01-03 08:47:04.417465, batch: 7790, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.504
+2020-01-03 08:47:09.329130, batch: 7800, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.494
+2020-01-03 08:47:14.471058, batch: 7810, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.539
+2020-01-03 08:47:19.532993, batch: 7820, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.552
+2020-01-03 08:47:24.376842, batch: 7830, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.484
+2020-01-03 08:47:29.238966, batch: 7840, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.515
+2020-01-03 08:47:34.239491, batch: 7850, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.475
+2020-01-03 08:47:39.337236, batch: 7860, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:47:44.419009, batch: 7870, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.474
+2020-01-03 08:47:49.390913, batch: 7880, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.482
+2020-01-03 08:47:54.558705, batch: 7890, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.487
+2020-01-03 08:47:59.875251, batch: 7900, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.524
+2020-01-03 08:48:04.996517, batch: 7910, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.506
+2020-01-03 08:48:10.032939, batch: 7920, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.494
+2020-01-03 08:48:14.921871, batch: 7930, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.488
+2020-01-03 08:48:19.728310, batch: 7940, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.483
+2020-01-03 08:48:24.698430, batch: 7950, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.520
+2020-01-03 08:48:29.588430, batch: 7960, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.485
+2020-01-03 08:48:34.504204, batch: 7970, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.480
+2020-01-03 08:48:39.427543, batch: 7980, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.479
+2020-01-03 08:48:44.333518, batch: 7990, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.473
+2020-01-03 08:48:50.123063, batch: 8000, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 1.321
+2020-01-03 08:48:55.117770, batch: 8010, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.483
+2020-01-03 08:49:00.418379, batch: 8020, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.544
+2020-01-03 08:49:05.853842, batch: 8030, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.487
+2020-01-03 08:49:10.797273, batch: 8040, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.486
+2020-01-03 08:49:15.651761, batch: 8050, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.482
+2020-01-03 08:49:20.653674, batch: 8060, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.485
+2020-01-03 08:49:25.665158, batch: 8070, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.490
+2020-01-03 08:49:30.770230, batch: 8080, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.495
+2020-01-03 08:49:36.021963, batch: 8090, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.488
+2020-01-03 08:49:40.997002, batch: 8100, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.496
+2020-01-03 08:49:45.950659, batch: 8110, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.495
+2020-01-03 08:49:50.865538, batch: 8120, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.476
+2020-01-03 08:49:55.784026, batch: 8130, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.484
+2020-01-03 08:50:00.683331, batch: 8140, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.475
+2020-01-03 08:50:05.728776, batch: 8150, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.003, time: 0.497
+2020-01-03 08:50:10.777270, batch: 8160, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.484
+2020-01-03 08:50:15.737608, batch: 8170, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.502
+2020-01-03 08:50:20.676410, batch: 8180, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.480
+2020-01-03 08:50:25.798677, batch: 8190, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:50:30.991199, batch: 8200, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.474
+2020-01-03 08:50:35.850799, batch: 8210, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.485
+2020-01-03 08:50:40.728571, batch: 8220, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.511
+2020-01-03 08:50:45.746115, batch: 8230, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.485
+2020-01-03 08:50:50.693310, batch: 8240, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.539
+2020-01-03 08:50:55.615663, batch: 8250, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.493
+2020-01-03 08:51:00.663073, batch: 8260, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.503
+2020-01-03 08:51:06.084776, batch: 8270, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.506
+2020-01-03 08:51:11.109421, batch: 8280, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.480
+2020-01-03 08:51:16.205955, batch: 8290, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.493
+2020-01-03 08:51:21.274534, batch: 8300, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.476
+2020-01-03 08:51:26.139919, batch: 8310, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:51:30.981588, batch: 8320, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.481
+2020-01-03 08:51:35.895094, batch: 8330, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.474
+2020-01-03 08:51:40.877209, batch: 8340, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.486
+2020-01-03 08:51:45.758468, batch: 8350, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.483
+2020-01-03 08:51:50.672749, batch: 8360, lr: 0.00050, 'model_loss': 0.01, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.511
+2020-01-03 08:51:55.542368, batch: 8370, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.504
+2020-01-03 08:52:00.517279, batch: 8380, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.481
+2020-01-03 08:52:05.806188, batch: 8390, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.596
+2020-01-03 08:52:11.011393, batch: 8400, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.487
+2020-01-03 08:52:15.930711, batch: 8410, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.489
+2020-01-03 08:52:20.811336, batch: 8420, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.500
+2020-01-03 08:52:25.934409, batch: 8430, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.494
+2020-01-03 08:52:31.049022, batch: 8440, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.485
+2020-01-03 08:52:36.020490, batch: 8450, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.559
+2020-01-03 08:52:40.967351, batch: 8460, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.492
+2020-01-03 08:52:46.001438, batch: 8470, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.495
+2020-01-03 08:52:51.062998, batch: 8480, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.472
+2020-01-03 08:52:56.037937, batch: 8490, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.544
+2020-01-03 08:53:01.003524, batch: 8500, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.493
+2020-01-03 08:53:06.056594, batch: 8510, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.482
+2020-01-03 08:53:11.045648, batch: 8520, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.520
+2020-01-03 08:53:15.974331, batch: 8530, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.475
+2020-01-03 08:53:21.062062, batch: 8540, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.558
+2020-01-03 08:53:26.214345, batch: 8550, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.515
+2020-01-03 08:53:31.268522, batch: 8560, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.486
+2020-01-03 08:53:36.427217, batch: 8570, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.486
+2020-01-03 08:53:41.451197, batch: 8580, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.561
+2020-01-03 08:53:46.321104, batch: 8590, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.477
+2020-01-03 08:53:51.669125, batch: 8600, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.004, time: 0.544
+2020-01-03 08:53:57.017839, batch: 8610, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.487
+2020-01-03 08:54:02.270047, batch: 8620, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.561
+2020-01-03 08:54:07.262130, batch: 8630, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.491
+2020-01-03 08:54:12.200901, batch: 8640, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.005, 'cls_loss': 0.005, time: 0.515
+2020-01-03 08:54:17.161797, batch: 8650, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.506
+2020-01-03 08:54:22.199518, batch: 8660, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.510
+2020-01-03 08:54:27.245599, batch: 8670, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.512
+2020-01-03 08:54:32.242329, batch: 8680, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.535
+2020-01-03 08:54:37.254507, batch: 8690, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.528
+2020-01-03 08:54:42.203160, batch: 8700, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.478
+2020-01-03 08:54:47.096711, batch: 8710, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.004, time: 0.518
+2020-01-03 08:54:52.318854, batch: 8720, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.563
+2020-01-03 08:54:57.358453, batch: 8730, lr: 0.00050, 'model_loss': 0.006, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.525
+2020-01-03 08:55:02.258204, batch: 8740, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.493
+2020-01-03 08:55:07.433391, batch: 8750, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.522
+2020-01-03 08:55:12.363972, batch: 8760, lr: 0.00050, 'model_loss': 0.007, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.507
+2020-01-03 08:55:17.338630, batch: 8770, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.477
+2020-01-03 08:55:22.329745, batch: 8780, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.493
+2020-01-03 08:55:27.326062, batch: 8790, lr: 0.00050, 'model_loss': 0.009, 'g_loss': 0.004, 'cls_loss': 0.005, time: 0.506
+2020-01-03 08:55:32.333362, batch: 8800, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.005, time: 0.494
+2020-01-03 08:55:37.370447, batch: 8810, lr: 0.00050, 'model_loss': 0.008, 'g_loss': 0.003, 'cls_loss': 0.004, time: 0.478
